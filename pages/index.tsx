@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Fragment } from 'react'
 import Head from 'next/head'
 import Button from '@mui/material/Button'
+import Post from '../components/Post'
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
       </h2>
       <Image src="/images/profile.jpeg" height={144} width={144} alt="Profile pic"/>
       <Button variant="contained">Hello World</Button>
+      <Post></Post>
     </Fragment>
   )
 }
