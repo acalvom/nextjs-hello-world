@@ -2,10 +2,14 @@ import type { NextPage } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Fragment } from 'react'
+import Head from 'next/head'
 
 const Home: NextPage = () => {
   return (
     <Fragment>
+      <Head>
+        <title>Home</title>
+      </Head>
       <h1>Hello world</h1>
       <h2>
         <Link href="/posts/first-post">
