@@ -2,8 +2,9 @@ import { Button, Container, Typography } from "@mui/material";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { GetPostResults } from "../types/PostTypes";
 
-const Posts: NextPage = ({ posts }: any) => {
+const Posts: NextPage<{ posts: GetPostResults[] }> = ({ posts }) => {
   console.log(posts);
   return (
     <Container maxWidth="sm">
@@ -29,8 +30,8 @@ const Posts: NextPage = ({ posts }: any) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await res.json();
-  console.log(posts);
+  const posts: GetPostResults = await res.json();
+  // console.log("posts---", posts);
 
   return {
     props: { posts },
