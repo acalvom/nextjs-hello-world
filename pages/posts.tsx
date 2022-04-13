@@ -3,20 +3,20 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 
-const Home: NextPage = () => {
+const FirstPost: NextPage = () => {
   return (
     <Container maxWidth="sm">
       <Head>
-        <title>Home</title>
+        <title>Posts</title>
       </Head>
-      <Typography variant="h1" component="div" gutterBottom>
-        Home
+      <Typography variant="h2" component="div" gutterBottom>
+        List of posts
       </Typography>
-      <Link href="/posts">
-        <Button variant="contained">Check posts</Button>
+      <Link href="/">
+        <Button variant="contained">Back to Home</Button>
       </Link>
     </Container>
   );
 };
 
-export default Home;
+export default FirstPost;
