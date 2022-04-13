@@ -15,6 +15,9 @@ const Home: NextPage = () => {
       <Link href="/posts">
         <Button variant="contained">Check posts</Button>
       </Link>
+      <Link href="/memes">
+        <Button variant="contained">Check memes</Button>
+      </Link>
     </Container>
   );
 };
