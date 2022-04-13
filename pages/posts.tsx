@@ -1,10 +1,19 @@
-import { Button, Container, Typography } from "@mui/material";
+import { Bookmark } from "@mui/icons-material";
+import {
+  Button,
+  Container,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { GetPostResults } from "../types/PostTypes";
+import { Post } from "../types/PostTypes";
 
-const Posts: NextPage<{ posts: GetPostResults[] }> = ({ posts }) => {
+const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
   console.log(posts);
   return (
     <Container maxWidth="sm">
@@ -14,12 +23,16 @@ const Posts: NextPage<{ posts: GetPostResults[] }> = ({ posts }) => {
       <Typography variant="h2" component="div" gutterBottom>
         List of posts
       </Typography>
-
-      <ul>
-        {posts.map((item: any) => (
-          <li key={item.id}>{item.title}</li>
+      <List>
+        {posts.map((post: Post) => (
+          <ListItem>
+            <ListItemIcon>
+              <Bookmark />
+            </ListItemIcon>
+            <ListItemText primary={post.title} secondary={post.body} />
+          </ListItem>
         ))}
-      </ul>
+      </List>
 
       <Link href="/">
         <Button variant="contained">Back to Home</Button>
@@ -30,8 +43,7 @@ const Posts: NextPage<{ posts: GetPostResults[] }> = ({ posts }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts: GetPostResults = await res.json();
-  // console.log("posts---", posts);
+  const posts: Post[] = await res.json();
 
   return {
     props: { posts },
