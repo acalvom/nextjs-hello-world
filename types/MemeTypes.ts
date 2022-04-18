@@ -1,12 +1,7 @@
 export interface Memes {
     success: boolean;
-    data:    Data;
+    data:    Meme[];
 }
-
-export interface Data {
-    memes: Meme[];
-}
-
 export interface Meme {
     id:        string;
     name:      string;
