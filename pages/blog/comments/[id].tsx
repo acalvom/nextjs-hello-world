@@ -1,14 +1,54 @@
-import { Container, Typography } from "@mui/material";
+import {
+  Avatar,
+  Button,
+  Container,
+  Link,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { Fragment } from "react";
 import { Comment, Post } from "../../../types/PostTypes";
 
-const Comments: NextPage<{ comments: Comment[] }> = (commments) => {
-  console.log(commments);
+const Comments: NextPage<{ comments: Comment[] }> = ({ comments }) => {
+  console.log(comments);
   return (
     <Container maxWidth="sm">
-      <Typography variant="h1" component="div" gutterBottom>
-        Comments Page
+      <Typography variant="h2" component="div" gutterBottom>
+        Comments from post:
       </Typography>
+      <List>
+        {comments.map((comment) => (
+          <ListItem alignItems="flex-start" key={comment.id}>
+            <ListItemAvatar>
+              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            </ListItemAvatar>
+            <ListItemText
+              primary="Brunch this weekend?"
+              secondary={
+                <Fragment>
+                  <Typography
+                    sx={{ display: "inline" }}
+                    component="span"
+                    variant="body2"
+                    color="text.primary"
+                  >
+                    Ali Connors
+                  </Typography>
+                  {" — I'll be in your neighborhood doing errands this…"}
+                </Fragment>
+              }
+            />
+          </ListItem>
+        ))}
+      </List>
+
+      <Link href="/">
+        <Button variant="contained">Back to Home</Button>
+      </Link>
     </Container>
   );
 };
@@ -27,7 +67,10 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
     `https://jsonplaceholder.typicode.com/posts/${params.id}/comments`
   );
   const comments: Comment[] = await res.json();
-  return { props: { comments } };
+
+  return {
+    props: { comments },
+  };
 };
 
 export default Comments;
