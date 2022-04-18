@@ -11,116 +11,15 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
-import * as React from "react";
+import { Fragment, useState } from "react";
+import { User } from "../types/PostTypes";
 
-const dataMock = [
-  {
-    id: 1,
-    name: "Leanne Graham",
-    username: "Bret",
-    email: "Sincere@april.biz",
-    address: {
-      street: "Kulas Light",
-      suite: "Apt. 556",
-      city: "Gwenborough",
-      zipcode: "92998-3874",
-      geo: {
-        lat: "-37.3159",
-        lng: "81.1496",
-      },
-    },
-    phone: "1-770-736-8031 x56442",
-    website: "hildegard.org",
-    company: {
-      name: "Romaguera-Crona",
-      catchPhrase: "Multi-layered client-server neural-net",
-      bs: "harness real-time e-markets",
-    },
-  },
-  {
-    id: 2,
-    name: "Ervin Howell",
-    username: "Antonette",
-    email: "Shanna@melissa.tv",
-    address: {
-      street: "Victor Plains",
-      suite: "Suite 879",
-      city: "Wisokyburgh",
-      zipcode: "90566-7771",
-      geo: {
-        lat: "-43.9509",
-        lng: "-34.4618",
-      },
-    },
-    phone: "010-692-6593 x09125",
-    website: "anastasia.net",
-    company: {
-      name: "Deckow-Crist",
-      catchPhrase: "Proactive didactic contingency",
-      bs: "synergize scalable supply-chains",
-    },
-  },
-  {
-    id: 3,
-    name: "Clementine Bauch",
-    username: "Samantha",
-    email: "Nathan@yesenia.net",
-    address: {
-      street: "Douglas Extension",
-      suite: "Suite 847",
-      city: "McKenziehaven",
-      zipcode: "59590-4157",
-      geo: {
-        lat: "-68.6102",
-        lng: "-47.0653",
-      },
-    },
-    phone: "1-463-123-4447",
-    website: "ramiro.info",
-    company: {
-      name: "Romaguera-Jacobson",
-      catchPhrase: "Face to face bifurcated interface",
-      bs: "e-enable strategic applications",
-    },
-  },
-];
-
-export interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: Address;
-  phone: string;
-  website: string;
-  company: Company;
-}
-
-export interface Address {
-  street: string;
-  suite: string;
-  city: string;
-  zipcode: string;
-  geo: Geo;
-}
-
-export interface Geo {
-  lat: string;
-  lng: string;
-}
-
-export interface Company {
-  name: string;
-  catchPhrase: string;
-  bs: string;
-}
-
-function Row(props: { row: User }) {
-  const { row } = props;
-  const [open, setOpen] = React.useState(false);
+const Row = (props: { row: User }) => {
+  const row = props.row;
+  const [open, setOpen] = useState(false);
 
   return (
-    <React.Fragment>
+    <Fragment>
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell>
           <IconButton
@@ -193,13 +92,12 @@ function Row(props: { row: User }) {
           </Collapse>
         </TableCell>
       </TableRow>
-    </React.Fragment>
+    </Fragment>
   );
-}
+};
 
-export default function CollapsibleTable(props: { users: User[] }) {
+export default function UserInfoTable(props: { users: User[] }) {
   const users = props.users;
-  console.log(users);
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">

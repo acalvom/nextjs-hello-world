@@ -2,7 +2,7 @@ import { Button, Container, Typography } from "@mui/material";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import CollapsibleTable from "../../../components/CollapsibleTable";
+import UserInfoTable from "../../../components/CollapsibleTable";
 import { User } from "../../../types/PostTypes";
 
 const Users: NextPage<{ users: User[] }> = ({ users }) => {
@@ -15,7 +15,7 @@ const Users: NextPage<{ users: User[] }> = ({ users }) => {
         List of users
       </Typography>
 
-      <CollapsibleTable users={users} />
+      <UserInfoTable users={users} />
 
       <Link href="/">
         <Button className="back-to-btn" variant="contained">
