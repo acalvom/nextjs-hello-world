@@ -38,11 +38,13 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
             }
           >
             <ListItemAvatar>
-              <IconButton aria-label="user" onClick={() => console.log("user")}>
-                <Avatar>
-                  <Person />
-                </Avatar>
-              </IconButton>
+              <Link href={`/blog/users/${post.userId}`}>
+                <IconButton aria-label="user">
+                  <Avatar>
+                    <Person />
+                  </Avatar>
+                </IconButton>
+              </Link>
             </ListItemAvatar>
             <ListItemText primary={post.title} secondary={post.body} />
           </ListItem>
