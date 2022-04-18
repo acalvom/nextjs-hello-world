@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       <Typography variant="h1" component="div" gutterBottom>
         Home
       </Typography>
-      <Link href="/blog/posts">
+      <Link href="/blog">
         <Button sx={{ m: 2 }} variant="contained">
           Check posts
         </Button>
