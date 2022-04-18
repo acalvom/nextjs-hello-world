@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 import { Fragment } from "react";
 import { Comment, Post } from "../../../types/PostTypes";
 
@@ -17,6 +18,9 @@ const Comments: NextPage<{ comments: Comment[] }> = ({ comments }) => {
   console.log(comments);
   return (
     <Container maxWidth="sm">
+      <Head>
+        <title>Comments</title>
+      </Head>
       <Typography variant="h2" component="div" gutterBottom>
         Comments from post:
       </Typography>
@@ -24,21 +28,21 @@ const Comments: NextPage<{ comments: Comment[] }> = ({ comments }) => {
         {comments.map((comment) => (
           <ListItem alignItems="flex-start" key={comment.id}>
             <ListItemAvatar>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+              <Avatar alt={comment.email} />
             </ListItemAvatar>
             <ListItemText
-              primary="Brunch this weekend?"
+              primary={comment.name}
               secondary={
                 <Fragment>
                   <Typography
-                    sx={{ display: "inline" }}
+                    sx={{ display: "inline", marginRight: "0.5em" }}
                     component="span"
                     variant="body2"
                     color="text.primary"
                   >
-                    Ali Connors
+                    {comment.email}
                   </Typography>
-                  {" — I'll be in your neighborhood doing errands this…"}
+                  {comment.body}
                 </Fragment>
               }
             />
@@ -46,8 +50,10 @@ const Comments: NextPage<{ comments: Comment[] }> = ({ comments }) => {
         ))}
       </List>
 
-      <Link href="/">
-        <Button variant="contained">Back to Home</Button>
+      <Link href="/blog">
+        <Button className="back-to-btn" variant="contained">
+          Back to Blog
+        </Button>
       </Link>
     </Container>
   );

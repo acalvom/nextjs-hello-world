@@ -13,12 +13,12 @@ const Home: NextPage = () => {
         Home
       </Typography>
       <Link href="/blog">
-        <Button sx={{ m: 2 }} variant="contained">
+        <Button className="back-to-btn" variant="contained">
           Check posts
         </Button>
       </Link>
       <Link href="/memes">
-        <Button sx={{ m: 2 }} variant="contained">
+        <Button className="back-to-btn" variant="contained">
           Check memes
         </Button>
       </Link>
