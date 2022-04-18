@@ -1,6 +1,7 @@
 import { Button, Container, Link, Typography } from "@mui/material";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import UserInfoCard from "../../../components/UserInfoCard";
 import { User } from "../../../types/PostTypes";
 
 const User: NextPage<{ user: User }> = ({ user }) => {
@@ -13,6 +14,8 @@ const User: NextPage<{ user: User }> = ({ user }) => {
       <Typography variant="h2" component="div" gutterBottom>
         User info
       </Typography>
+
+      <UserInfoCard user={user} />
 
       <Link href="/blog">
         <Button className="back-to-btn" variant="contained">
