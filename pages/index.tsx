@@ -13,10 +13,14 @@ const Home: NextPage = () => {
         Home
       </Typography>
       <Link href="/posts">
-        <Button variant="contained">Check posts</Button>
+        <Button sx={{ m: 2 }} variant="contained">
+          Check posts
+        </Button>
       </Link>
       <Link href="/memes">
-        <Button variant="contained">Check memes</Button>
+        <Button sx={{ m: 2 }} variant="contained">
+          Check memes
+        </Button>
       </Link>
     </Container>
   );
