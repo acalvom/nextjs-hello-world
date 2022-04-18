@@ -1,10 +1,12 @@
-import { Bookmark } from "@mui/icons-material";
+import { Comment, Person } from "@mui/icons-material";
 import {
+  Avatar,
   Button,
   Container,
+  IconButton,
   List,
   ListItem,
-  ListItemIcon,
+  ListItemAvatar,
   ListItemText,
   Typography,
 } from "@mui/material";
@@ -14,7 +16,7 @@ import Link from "next/link";
 import { Post } from "../types/PostTypes";
 
 const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
-  console.log(posts);
+  // console.log(posts);
   return (
     <Container maxWidth="sm">
       <Head>
@@ -25,10 +27,25 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
       </Typography>
       <List>
         {posts.map((post: Post) => (
-          <ListItem>
-            <ListItemIcon>
-              <Bookmark />
-            </ListItemIcon>
+          <ListItem
+            key={post.id}
+            secondaryAction={
+              <IconButton
+                edge="end"
+                aria-label="comments"
+                onClick={() => console.log("comments")}
+              >
+                <Comment />
+              </IconButton>
+            }
+          >
+            <ListItemAvatar>
+              <IconButton aria-label="user" onClick={() => console.log("user")}>
+                <Avatar>
+                  <Person />
+                </Avatar>
+              </IconButton>
+            </ListItemAvatar>
             <ListItemText primary={post.title} secondary={post.body} />
           </ListItem>
         ))}
