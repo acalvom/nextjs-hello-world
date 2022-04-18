@@ -13,7 +13,7 @@ import {
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { Post } from "../types/PostTypes";
+import { Post } from "../../types/PostTypes";
 
 const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
   // console.log(posts);
