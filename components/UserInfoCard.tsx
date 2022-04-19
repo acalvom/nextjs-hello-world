@@ -1,6 +1,5 @@
 import { Person } from "@mui/icons-material";
 import ArticleIcon from "@mui/icons-material/Article";
-import CommentIcon from "@mui/icons-material/Comment";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Avatar from "@mui/material/Avatar";
@@ -12,6 +11,7 @@ import Collapse from "@mui/material/Collapse";
 import { red } from "@mui/material/colors";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 import * as React from "react";
 import { useState } from "react";
 import { User } from "../types/PostTypes";
@@ -45,12 +45,11 @@ export default function RecipeReviewCard(props: { user: User }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing sx={{ justifyContent: "space-evenly" }}>
-        <IconButton aria-label="check-posts">
-          <ArticleIcon />
-        </IconButton>
-        <IconButton aria-label="check-comments">
-          <CommentIcon />
-        </IconButton>
+        <Link href={`/blog/users/${user.id}/posts`}>
+          <IconButton aria-label="check-posts">
+            <ArticleIcon />
+          </IconButton>
+        </Link>
         <IconButton
           aria-label="expand row"
           size="small"
