@@ -33,7 +33,7 @@ const Memes: NextPage<{ memes: Meme[] }> = ({ memes }) => {
         </Card>
       ))}
 
-      <Link href="/">
+      <Link href="/" passHref>
         <Button variant="contained">Back to Home</Button>
       </Link>
     </Container>

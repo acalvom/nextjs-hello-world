@@ -12,12 +12,12 @@ const Home: NextPage = () => {
       <Typography variant="h1" component="div" gutterBottom>
         Home
       </Typography>
-      <Link href="/blog">
+      <Link href="/blog" passHref>
         <Button className="back-to-btn" variant="contained">
           Check posts
         </Button>
       </Link>
-      <Link href="/memes">
+      <Link href="/memes" passHref>
         <Button className="back-to-btn" variant="contained">
           Check memes
         </Button>

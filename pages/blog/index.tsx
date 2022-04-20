@@ -29,7 +29,7 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
           <ListItem
             key={post.id}
             secondaryAction={
-              <Link href={`/blog/comments/${post.id}`}>
+              <Link href={`/blog/comments/${post.id}`} passHref>
                 <IconButton edge="end" aria-label="comments">
                   <Comment />
                 </IconButton>
@@ -38,6 +38,8 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
           >
             <ListItemAvatar>
               <Link href={`/blog/users/${post.userId}`}>
+                {" "}
+                passHref
                 <IconButton aria-label="user">
                   <Avatar>
                     <Person />
@@ -50,7 +52,7 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
         ))}
       </List>
 
-      <Link href="/">
+      <Link href="/" passHref>
         <Button className="back-to-btn" variant="contained">
           Back to home
         </Button>

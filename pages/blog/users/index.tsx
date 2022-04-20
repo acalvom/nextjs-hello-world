@@ -17,7 +17,7 @@ const Users: NextPage<{ users: User[] }> = ({ users }) => {
 
       <UserInfoTable users={users} />
 
-      <Link href="/">
+      <Link href="/" passHref>
         <Button className="back-to-btn" variant="contained">
           Back to home
         </Button>

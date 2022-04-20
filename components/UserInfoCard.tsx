@@ -45,7 +45,7 @@ export default function RecipeReviewCard(props: { user: User }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing sx={{ justifyContent: "space-evenly" }}>
-        <Link href={`/blog/users/${user.id}/posts`}>
+        <Link href={`/blog/users/${user.id}/posts`} passHref>
           <IconButton aria-label="check-posts">
             <ArticleIcon />
           </IconButton>
