@@ -37,9 +37,7 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
             }
           >
             <ListItemAvatar>
-              <Link href={`/blog/users/${post.userId}`}>
-                {" "}
-                passHref
+              <Link href={`/blog/users/${post.userId}`} passHref>
                 <IconButton aria-label="user">
                   <Avatar>
                     <Person />
