@@ -43,7 +43,6 @@ const Memes: NextPage<{ memes: Meme[] }> = ({ memes }) => {
 export const getStaticProps: GetStaticProps = async ({}) => {
   const res = await fetch("https://api.imgflip.com/get_memes");
   const memes: Memes = await res.json();
-  // console.log(memes.data);
   return {
     props: memes.data,
   };

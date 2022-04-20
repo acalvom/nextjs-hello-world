@@ -5,7 +5,6 @@ import UserInfoCard from "../../../components/UserInfoCard";
 import { User } from "../../../types/PostTypes";
 
 const User: NextPage<{ user: User }> = ({ user }) => {
-  console.log(user);
   return (
     <Container maxWidth="sm">
       <Head>

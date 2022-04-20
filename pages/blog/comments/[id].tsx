@@ -15,7 +15,6 @@ import { Fragment } from "react";
 import { Comment, Post } from "../../../types/PostTypes";
 
 const Comments: NextPage<{ comments: Comment[] }> = ({ comments }) => {
-  console.log(comments);
   return (
     <Container maxWidth="sm">
       <Head>

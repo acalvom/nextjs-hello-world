@@ -16,7 +16,6 @@ import Link from "next/link";
 import { Post } from "../../types/PostTypes";
 
 const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
-  // console.log(posts);
   return (
     <Container maxWidth="sm">
       <Head>
